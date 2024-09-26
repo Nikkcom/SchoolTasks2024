@@ -1,6 +1,8 @@
-#include "exercise_2_250924.c"
+#include <stdio.h>
+
+void exercise_4();
 
 int main(int argc, char* argv[]) {
-	exercise_2();
+	exercise_4();
 	return 0;
 }

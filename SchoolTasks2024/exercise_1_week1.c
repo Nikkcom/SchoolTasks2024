@@ -13,8 +13,6 @@ iii. Adult (20-59)
 iv. Senior (60 and above)
 d. Print out the category along with their name and age.
 */
-
-
 #include <stdio.h>
 static void exercise_1() {
 
