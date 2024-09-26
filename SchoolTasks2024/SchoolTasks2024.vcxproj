@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-	<ClCompile Include="exercise_1_week1.c" />
-	<ClCompile Include="exercise_2_week1.c" />
-	<ClCompile Include="exercise_3_week1.c" />
-	<ClCompile Include="exercise_4_week1.c" />
+    <ClCompile Include="exercise_1_week1.c" />
+    <ClCompile Include="exercise_2_week1.c" />
+    <ClCompile Include="exercise_3_week1.c" />
+    <ClCompile Include="exercise_4_week1.c" />
+    <ClCompile Include="exercise_5_week1.c" />
+    <ClCompile Include="exercise_6_week1.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
