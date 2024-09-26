@@ -1,6 +1,6 @@
-#include "exercise_1_250924.c"
+#include "exercise_2_250924.c"
 
 int main(int argc, char* argv[]) {
-	exercise_1();
+	exercise_2();
 	return 0;
 }
