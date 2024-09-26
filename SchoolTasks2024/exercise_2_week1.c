@@ -14,7 +14,7 @@ void exercise_2() {
 	char celsiusstring[5];
 	double celsius, fahrenheit;
 
-	printf("Enter the temperature you wish to convert from Celsius to Fahrenheit: \n");
+	printf("Enter the temperature you wish TO convert from Celsius to Fahrenheit: \n");
 	gets(celsiusstring);
 	celsius = atoi(celsiusstring);
 
