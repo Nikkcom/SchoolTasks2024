@@ -133,6 +133,8 @@
     <ClCompile Include="exercise_4_week1.c" />
     <ClCompile Include="exercise_5_week1.c" />
     <ClCompile Include="exercise_6_week1.c" />
+	<ClCompile Include="exercise_7_week1.c" />
+	<ClCompile Include="exercise_8_week1.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

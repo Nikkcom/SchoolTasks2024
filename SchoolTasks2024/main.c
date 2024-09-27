@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-void exercise_6();
+void exercise_8();
 
+// Main function to call the task's functions
 int main(int argc, char* argv[]) {
-	exercise_6();
+	exercise_8();
 	return 0;
 }
