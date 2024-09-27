@@ -18,16 +18,19 @@ h. Bonus: If you can do this, see if you can add a telephone number to the conta
 you may want to use structs for this.
 */
 #include <stdio.h>
+#include <stdlib.h>
 
+// Defines constants.
 #define MAX_NAME_LENGTH 100
 #define MAX_CONTACTS 10
-#define MAX_PHONE_LENGTH 8
-#define MAX_COUNTRY_CODE_LENGTH 4
+#define MAX_PHONE_LENGTH 9
+#define MAX_COUNTRY_CODE_LENGTH 5
 
 // Function prototypes.
 void displayContacts(struct contact contacts[], int contact_amount);
-void addContact(struct contact contacts[], int contact_amount);
+void addContact(struct contact contacts[], int *contact_amount);
 
+// Structure to hold contact values.
 struct contact {
 	char name[MAX_NAME_LENGTH];
 	char country_code[MAX_COUNTRY_CODE_LENGTH];
@@ -35,68 +38,97 @@ struct contact {
 };
 
 void exercise_8() {
+
+	// Declares an array containing contacts.
 	struct contact contacts[MAX_CONTACTS];
 	int menu_selection, contact_amount = 0;
+	
+	// A loop which runs atleast once. Prompting the user to select a menu choice.
 	do
 	{
-		printf("-------------------------------\n");
 		printf("Type in what you wish to do: \n");
 		printf("0 - Exit.\n");
 		printf("1 - Add Contact.\n");
 		printf("2 - Display Contacts.\n");
+
+		// Registers and stores the user input in a variable.
 		scanf_s("%d", &menu_selection);
 
+		// Switch statement to handle the difference user selections.
 		switch (menu_selection) {
+
+		// Exits the program.
 		case 0:
 			printf("Exiting program...\n");
 			break;
+
+		// Calls the function to add a person to the contact list.
 		case 1:
-			addContact(contacts, contact_amount);
+			system("cls");
+			addContact(contacts, &contact_amount);
 			break;
+
+		// Calls the function to display the contact list.
 		case 2:
+			system("cls");
 			displayContacts(contacts, contact_amount);
+			printf("\n");
 			break;
 		}
+
+	// Reruns the menu prompt until the user selects to exit
 	} while (menu_selection != 0);
 }
 
+// Function to display the contacts of an user
 void displayContacts(struct contact contacts[], int contacts_amount) {
-	int i;
+
+	// Displays no contact list if the user got no contacts
 	if (contacts_amount == 0) {
 		printf("You have no contacts saved!\n\n");
 		return;
 	}
-	for (i = 0; i < contacts_amount; i++) {
+
+	// Iterates through the contacts array and prints the values of each contact.
+	printf("Your contacts:\n\n");
+	for (int i = 0; i < contacts_amount; i++) {
 		printf("Name: %s\n", contacts[i].name);
 		printf("Phone Number: %s %s\n", contacts[i].country_code, contacts[i].phone_number);
-	
 	}
 }
 
-void addContact(struct contact contacts[], int contact_amount) {
-	if (contact_amount >= MAX_CONTACTS) {
+// Function to add a contact to the stored contacts.
+void addContact(struct contact contacts[], int *contact_amount) {
+
+	// Checks if the user reached the max amount of contacts.
+	if (*contact_amount >= MAX_CONTACTS) {
 		printf("You can't store more contacts. You have %d contacts already!5\n\n", MAX_CONTACTS);
 		return;
 	}
+
+	// Declares values to determine if the received values from user is valid values.
 	int val1, val2, val3;
-	do
-	{
+
+	// Loops to verify valid user input before requesting the next.
+	do {
 		printf("Please enter the name of person you wish to add: \n");
-		val1 = scanf_s("%s", contacts[contact_amount].name, MAX_NAME_LENGTH);
-		printf("val1 %d\n", val1);
-
+		val1 = scanf_s("%s", contacts[*contact_amount].name, MAX_NAME_LENGTH);
+		system("cls");
+	} while (val1 != 1);
+	do {
 		printf("Please enter the phone number: \n");
-		val2 = scanf_s("%s", contacts[contact_amount].phone_number, MAX_PHONE_LENGTH);
-		printf("val2 %d\n", val2);
-		printf("%zu bytes", sizeof(contacts[contact_amount].phone_number));
+		val2 = scanf_s("%s", contacts[*contact_amount].phone_number, MAX_PHONE_LENGTH);
+		system("cls");
 
-		printf("Please enter the country code (00XXX or +XXX): \n");
-		val3 = scanf_s("%s", contacts[contact_amount].country_code, MAX_COUNTRY_CODE_LENGTH);
-		printf("val3 %d\n", val3);
-	} while (val1 != 1 || val2 != 1 || val3 != 1);
+	} while (val2 != 1);
+	do {
+		printf("Please enter the country code (+47, +210...): \n");
+		val3 = scanf_s("%s", contacts[*contact_amount].country_code, MAX_COUNTRY_CODE_LENGTH);
+		system("cls");
+	} while (val3 != 1);
 
-
-
+	// Increases the total contacts count.
+	(*contact_amount)++;
 }
 
 
